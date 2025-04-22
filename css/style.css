@@ -392,7 +392,7 @@ nav a:hover:after { width: 100%; }
 	box-shadow: -2px 7px 27px -4px rgba(0,0,0,0.75);
 }
 .w3ls-agile-left {
-    padding: 2.7em 3em;
+    padding: 0.1em 0.3em;
     background: #0b98ea;
 	-webkit-box-shadow: 4px 4px 14px -2px rgba(0,0,0,0.75);
 	-moz-box-shadow: 4px 4px 14px -2px rgba(0,0,0,0.75);
