@@ -90,7 +90,25 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		 
  }
 
-	
+	@media (min-width:280px) and (max-width:379px) {
+	    .circle {
+	    position: absolute !important;
+	    top: 31% !important;
+	    margin-left: 20px !important;
+	    width: 280px !important;
+	    height: 280px !important;
+	    animation: rotate 12s linear infinite !important;
+	}
+
+		.center-text {
+		text-align: center !important;
+		position: relative !important;
+		margin-left: 0px !important;
+		top: 53% !important;
+		color: antiquewhite !important;
+	}
+			  
+ }
 
 </style>
 	
@@ -1539,7 +1557,7 @@ Passionate about emerging technologies, I constantly strive to expand my skillse
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
-			event.preventDefault();
+			
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
 	});
@@ -1705,7 +1723,7 @@ Passionate about emerging technologies, I constantly strive to expand my skillse
 			var bodyText = name + "<br>" + messages + "<br><br><br> Best Regards <br>" + email ;
 			
 			debugger;	
-			event.preventDefault();
+			
 			Email.send({
 					Host : "elasticemail.com",
 					Username : "sadatjnu9@gmail.com",
@@ -1721,6 +1739,7 @@ Passionate about emerging technologies, I constantly strive to expand my skillse
 
 </body>
 </html>
+
 
 
 
