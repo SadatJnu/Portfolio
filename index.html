@@ -110,10 +110,44 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			  
  }
 
+
+.transition-left,
+.transition-right{
+    position:fixed;
+    top:0;
+    width:50%;
+    height:100%;
+    background:mediumspringgreen;
+    z-index:9999;
+    pointer-events:none;
+    transition:transform .6s ease;
+}
+
+.transition-left{
+    left:0;
+    transform:translateX(-100%);
+}
+
+.transition-right{
+    right:0;
+    transform:translateX(100%);
+}
+
+.animate-left{
+    transform:translateX(0);
+}
+
+.animate-right{
+    transform:translateX(0);
+}
+	
 </style>
 	
 </head>
 
+<div class="transition-left"></div>
+<div class="transition-right"></div>
+	
 <body> 
 
 <!-- 
@@ -1572,6 +1606,37 @@ Passionate about emerging technologies, I constantly strive to expand my skillse
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 
+	<script type="text/javascript">
+		
+	$('.menu nav a').click(function(e){
+
+    var target = $(this).attr("href");
+
+    if(target.startsWith("#")){
+
+        e.preventDefault();
+
+        $('.transition-left').addClass('animate-left');
+        $('.transition-right').addClass('animate-right');
+
+        setTimeout(function(){
+
+            $('html, body').animate({
+                scrollTop: $(target).offset().top
+            }, 400);
+
+            $('.transition-left').removeClass('animate-left');
+            $('.transition-right').removeClass('animate-right');
+
+        },600);
+
+    }
+});
+		
+</script>
+
+
+	
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
