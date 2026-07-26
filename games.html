@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Games — Sadat Abdulla Al Muniem</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand"><span class="mono">SA</span> Sadat</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="games.html" class="active">Games</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <div class="accent-dock" id="accentDock">
+        <button class="icon-btn" id="accentBtn" aria-label="Change accent color" title="Theme color">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1.1-.2-.3-.4-.6-.4-1 0-.8.7-1.4 1.4-1.4H16c3.3 0 6-2.7 6-6 0-4.4-4-8-10-8z"/></svg>
+        </button>
+        <div class="accent-swatches" id="accentSwatches">
+          <span class="swatch active" data-a="indigo"></span>
+          <span class="swatch" data-a="teal"></span>
+          <span class="swatch" data-a="amber"></span>
+          <span class="swatch" data-a="rose"></span>
+          <span class="swatch" data-a="emerald"></span>
+        </div>
+      </div>
+      <button class="icon-btn" id="soundBtn" aria-label="Toggle sound effects" title="Sound effects">
+        <svg class="i-sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+        <svg class="i-sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg>
+      </button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark / light mode" title="Light / Dark">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="games-hero">
+  <div class="container">
+    <div class="eyebrow" style="justify-content:center">Just for Fun</div>
+    <h1>Take a short break — play a game</h1>
+    <p style="color:var(--text-dim);max-width:560px;margin:14px auto 0">Nine quick browser games while you're here — from the classic 15-puzzle to trending favorites like 2048, Word Guess, Snake, Flappy Bird, Bubble Shooter and more.</p>
+  </div>
+</section>
+
+<!-- ============ GAME 1: Sliding Puzzle ============ -->
+<div class="game-block">
+  <div class="container">
+    <div class="game-head">
+      <div>
+        <h2>Sliding Puzzle</h2>
+        <p>Click a tile next to the empty slot to slide it. Arrange 1–15 in order to win.</p>
+      </div>
+      <div class="game-stats">
+        <div><b id="slideMoves">0</b>Moves</div>
+        <div><b id="slideTime">00:00</b>Time</div>
+      </div>
+    </div>
+    <div class="game-stage">
+      <div class="slide-board" id="slideBoard"></div>
+      <div style="display:flex;gap:12px">
+        <button class="btn btn-primary" id="slideShuffle">Shuffle &amp; Restart</button>
+        <span id="slideMsg" style="align-self:center;font-weight:600;color:var(--accent)"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GAME 2 (NEW): Memory Match ============ -->
+<div class="game-block">
+  <div class="container">
+    <div class="game-head">
+      <div>
+        <h2>Memory Match <span class="pill" style="margin-left:8px;vertical-align:middle">New</span></h2>
+        <p>Flip two cards at a time. Find all 8 matching pairs in the fewest moves.</p>
+      </div>
+      <div class="game-stats">
+        <div><b id="memMoves">0</b>Moves</div>
+        <div><b id="memPairs">0/8</b>Pairs</div>
+        <div><b id="memTime">00:00</b>Time</div>
+      </div>
+    </div>
+    <div class="game-stage">
+      <div class="memory-board" id="memBoard"></div>
+      <div style="display:flex;gap:12px">
+        <button class="btn btn-primary" id="memRestart">New Game</button>
+        <span id="memMsg" style="align-self:center;font-weight:600;color:var(--accent)"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GAME 3 (NEW): 2048 ============ -->
+<div class="game-block">
+  <div class="container">
+    <div class="game-head">
+      <div>
+        <h2>2048 <span class="pill" style="margin-left:8px;vertical-align:middle">New</span></h2>
+        <p>Use arrow keys (or the pad) to slide tiles. Matching tiles merge and double — reach 2048 to win.</p>
+      </div>
+      <div class="game-stats">
+        <div><b id="g2048Score">0</b>Score</div>
+        <div><b id="g2048Best">0</b>Best</div>
+      </div>
+    </div>
+    <div class="game-stage">
+      <div class="g2048-board" id="g2048Board"></div>
+      <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:center">
+        <button class="btn btn-primary" id="g2048Restart">New Game</button>
+        <div class="dpad">
+          <button class="up" data-dir="up">&uarr;</button>
+          <button class="left" data-dir="left">&larr;</button>
+          <button class="right" data-dir="right">&rarr;</button>
+          <button class="down" data-dir="down">&darr;</button>
+        </div>
+        <span id="g2048Msg" style="font-weight:600;color:var(--accent)"></span>
+      </div>
+      <p class="g2048-hint">Click the board first, then use your keyboard's arrow keys — or use the pad above.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GAME 4 (NEW): Word Guess ============ -->
+<div class="game-block">
+  <div class="container">
+    <div class="game-head">
+      <div>
+        <h2>Word Guess <span class="pill" style="margin-left:8px;vertical-align:middle">New</span></h2>
+        <p>Guess the hidden 5-letter word in 6 tries. Green = right spot, amber = wrong spot, grey = not in the word.</p>
+      </div>
+      <div class="game-stats">
+        <div><b id="wgTries">0/6</b>Tries</div>
+      </div>
+    </div>
+    <div class="game-stage">
+      <div class="wg-board" id="wgBoard"></div>
+      <div class="wg-keyboard" id="wgKeyboard"></div>
+      <div style="display:flex;gap:12px">
+        <button class="btn btn-primary" id="wgRestart">New Word</button>
+        <span id="wgMsg" style="align-self:center;font-weight:600;color:var(--accent)"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GAME 5 (NEW): Snake ============ -->
+<div class="game-block">
+  <div class="container">
+    <div class="game-head">
+      <div>
+        <h2>Snake <span class="pill" style="margin-left:8px;vertical-align:middle">New</span></h2>
+        <p>Arrow keys / WASD to steer, or swipe on touch. Eat the dots, avoid the walls and your own tail.</p>
+      </div>
+      <div class="game-stats">
+        <div><b id="snakeScore">0</b>Score</div>
+        <div><b id="snakeBest">0</b>Best</div>
+      </div>
+    </div>
+    <div class="game-stage">
+      <div class="snake-wrap">
+        <canvas id="snakeCanvas" width="360" height="360"></canvas>
+        <div class="snake-overlay show" id="snakeOverlay">
+          <p id="snakeOverlayText">Ready?</p>
+          <button class="btn btn-primary" id="snakeStart">Start Game</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GAME 6 (NEW): Flappy Bird ============ -->
+<div class="game-block">
+  <div class="container">
+    <div class="game-head">
+      <div>
+        <h2>Flappy Bird <span class="pill" style="margin-left:8px;vertical-align:middle">New</span></h2>
+        <p>Click, tap or press Space to flap. Thread the gaps between pipes without touching them.</p>
+      </div>
+      <div class="game-stats">
+        <div><b id="flappyScore">0</b>Score</div>
+        <div><b id="flappyBest">0</b>Best</div>
+      </div>
+    </div>
+    <div class="game-stage">
+      <div class="flappy-wrap">
+        <canvas id="flappyCanvas" width="320" height="440"></canvas>
+        <div class="flappy-overlay" id="flappyOverlay">
+          <p id="flappyOverlayText">Ready to fly?</p>
+          <span>Space / Click / Tap to flap</span>
+          <button class="btn btn-primary" id="flappyStart">Start Game</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GAME 7 (NEW): Tic-Tac-Toe ============ -->
+<div class="game-block">
+  <div class="container">
+    <div class="game-head">
+      <div>
+        <h2>Tic-Tac-Toe <span class="pill" style="margin-left:8px;vertical-align:middle">New</span></h2>
+        <p>You're X, the computer is O. Get three in a row to win — the computer plays smart.</p>
+      </div>
+      <div class="game-stats">
+        <div><b id="tttWins">0</b>Wins</div>
+        <div><b id="tttLosses">0</b>Losses</div>
+        <div><b id="tttDraws">0</b>Draws</div>
+      </div>
+    </div>
+    <div class="game-stage">
+      <div class="ttt-board" id="tttBoard"></div>
+      <div style="display:flex;gap:12px">
+        <button class="btn btn-primary" id="tttRestart">New Round</button>
+        <span id="tttMsg" style="align-self:center;font-weight:600;color:var(--accent)"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GAME 8 (NEW): Whack-a-Mole ============ -->
+<div class="game-block">
+  <div class="container">
+    <div class="game-head">
+      <div>
+        <h2>Whack-a-Mole <span class="pill" style="margin-left:8px;vertical-align:middle">New</span></h2>
+        <p>30 seconds on the clock — click the moles as they pop up to score points.</p>
+      </div>
+      <div class="game-stats">
+        <div><b id="wamScore">0</b>Score</div>
+        <div><b id="wamBest">0</b>Best</div>
+        <div><b id="wamTime">30</b>Seconds</div>
+      </div>
+    </div>
+    <div class="game-stage">
+      <div class="wam-board" id="wamBoard"></div>
+      <div style="display:flex;gap:12px">
+        <button class="btn btn-primary" id="wamStart">Start Game</button>
+        <span id="wamMsg" style="align-self:center;font-weight:600;color:var(--accent)"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GAME 9 (NEW): Bubble Shooter ============ -->
+<div class="game-block">
+  <div class="container">
+    <div class="game-head">
+      <div>
+        <h2>Bubble Shooter <span class="pill" style="margin-left:8px;vertical-align:middle">New</span></h2>
+        <p>Move to aim, click or tap to shoot. Match 3+ same-colored bubbles to pop them — clear the board before it reaches the cannon.</p>
+      </div>
+      <div class="game-stats">
+        <div><b id="bubbleScore">0</b>Score</div>
+        <div><b id="bubbleBest">0</b>Best</div>
+        <div><b id="bubbleShots">0</b>Shots</div>
+      </div>
+    </div>
+    <div class="game-stage">
+      <div class="bubble-wrap">
+        <canvas id="bubbleCanvas" width="324" height="460"></canvas>
+        <div class="bubble-overlay" id="bubbleOverlay">
+          <p id="bubbleOverlayText">Pop your way to a clear board</p>
+          <span>Move to aim, click / tap to shoot</span>
+          <button class="btn btn-primary" id="bubbleStart">Start Game</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> Sadat Abdulla Al Muniem. All rights reserved.</p>
+    <p><a href="index.html">&larr; Back to portfolio</a></p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l9 14H3z"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+<script src="js/sounds.js"></script>
+<script src="js/games.js"></script>
+</body>
+</html>
