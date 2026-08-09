@@ -119,7 +119,9 @@
   if (lightbox) {
     document.querySelectorAll('.gal-item').forEach(function (item) {
       item.addEventListener('click', function () {
-        lightboxImg.src = item.querySelector('img').src;
+        var img = item.querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || '';
         lightboxCap.textContent = item.dataset.cap || '';
         lightbox.classList.add('open');
       });

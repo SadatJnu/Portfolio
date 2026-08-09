@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /profile.html
+Disallow: /eCommerce.html
+Disallow: /puzzle.html
+Disallow: /Website/
+Disallow: /images/_originals_backup/
+
+Sitemap: https://sadatjnu.github.io/sitemap.xml
